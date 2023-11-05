@@ -1,0 +1,11 @@
+# project specific
+blends/
+
+# Godot 4+ specific ignores
+.godot/
+
+.vs/
+.vscode/
+.DS_Store
+
+*.old
