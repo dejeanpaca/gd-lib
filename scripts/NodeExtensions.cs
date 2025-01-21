@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Godot;
 
 namespace gdlib;
@@ -31,5 +32,39 @@ public static class NodeExtensions
         }
 
         return default;
+    }
+
+
+    public static List<T> RecursiveFindChildrenOfType<T>(this Node node) where T : Node
+    {
+        List<T> list = new List<T>();
+
+        foreach (var current in node.GetChildren())
+        {
+            if (current is T) list.Add((T)current);
+        }
+
+        foreach (var current in node.GetChildren())
+        {
+            RecursiveFindChildrenOfType(current, list);
+        }
+
+        return list;
+    }
+
+    public static List<T> RecursiveFindChildrenOfType<T>(this Node node, List<T> list) where T : Node
+    {
+        foreach (var current in node.GetChildren())
+        {
+            if (current is T) list.Add((T)current);
+
+        }
+
+        foreach (var current in node.GetChildren())
+        {
+            RecursiveFindChildrenOfType(current, list);
+        }
+
+        return list;
     }
 }
