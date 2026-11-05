@@ -2,7 +2,7 @@ using Godot;
 
 namespace gdlib;
 
-public class MouseUtils
+public static class MouseUtils
 {
     public static void CenterPointer(Viewport viewport)
     {

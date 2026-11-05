@@ -2,7 +2,7 @@ using Godot;
 
 namespace gdlib;
 
-public class TimeUtils
+public static class TimeUtils
 {
     public static double UsecNowInSeconds()
     {
