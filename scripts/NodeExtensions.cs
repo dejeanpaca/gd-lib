@@ -39,18 +39,14 @@ public static class NodeExtensions
     {
         List<T> list = new List<T>();
 
-        return RecursiveFindChildrenOfType<T>(node, list);
+        return RecursiveFindChildrenOfType(node, list);
     }
 
     public static List<T> RecursiveFindChildrenOfType<T>(this Node node, List<T> list) where T : Node
     {
         foreach (var current in node.GetChildren())
         {
-            if (current is T) list.Add((T)current);
-        }
-
-        foreach (var current in node.GetChildren())
-        {
+            if (current is T nodeItem) list.Add(nodeItem);
             RecursiveFindChildrenOfType(current, list);
         }
 
